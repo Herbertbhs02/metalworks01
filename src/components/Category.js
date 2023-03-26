@@ -39,13 +39,6 @@ const Category = ({selection}) => {
       <input class="with-gap" value="showcase" name="showcase" type="radio"  checked={select==="showcase"} onChange={onChangeValue} />
       <span>Showcase</span>
     </label> 
-
-    
-
-    <label className="radio-btn">
-      <input class="with-gap" value="services" name="services" type="radio"  checked={select==="services"} onChange={onChangeValue} />
-      <span>Services</span>
-    </label>  
       </p>
     </div>
   )

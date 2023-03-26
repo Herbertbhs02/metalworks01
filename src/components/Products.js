@@ -6,7 +6,7 @@ import Category from './Category'
 import Footer from './Footer'
 import Home from './Home'
 
-const display = [];
+//const display = [];
 
 const Products = () => {
 
@@ -16,6 +16,7 @@ const [loading, SetLoading] = useState(true)
 //Function to select product category
 const selection = async(e)=>{
    const response = await axios.get('https://handsome-cow-train.cyclic.app/retrievework',{params:{category:e}})
+   //
   setProductdata(response.data)
 }
 //xxxx
@@ -29,22 +30,10 @@ useEffect(()=>{
 
 //List products. Item component is used in the map() method
 const display1 = productdata.map(item=>(<div key={item._id}><Item image={item.image} name={item.product} description={item.description} id={item._id} /></div>))
-const display2 = productdata.map(item=>(<div key={item._id}><Services  name={item.product} description={item.description} id={item._id} /></div>))
+//const display2 = productdata.map(item=>(<div key={item._id}><Services  name={item.product} description={item.description} id={item._id} /></div>))
 
 
-     if(productdata[0].category ==='services'){
-      return (
-        <div>
-              <Category selection={selection}/>
-              <div className=' products  '>
-                    {display2}
-              </div>  
-             <Footer/>
-      </div>
-  
-    )
-
-     }else if(productdata[0].category ==='home'){
+      if(productdata[0].category ==='home'){
    
       return (
         <div className=''>
