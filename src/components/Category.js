@@ -22,7 +22,7 @@ const Category = ({selection}) => {
 
     <label className="radio-btn">
       <input class="with-gap"  name="doors" value="doors" type="radio" checked ={select==="doors"} onChange={onChangeValue} />
-      <span>Doors</span>
+      <span>Doors&Windows</span>
     </label>
 
     <label className="radio-btn">
