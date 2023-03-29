@@ -24,7 +24,7 @@ header{
 @media only screen and (max-width: 600px)  {
   .Item{
     width: 260px !important;
-    margin-left: 10% !important;
+    margin-left: 20% !important;
   }}
 
 .Item-content{
