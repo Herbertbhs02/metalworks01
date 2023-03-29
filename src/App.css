@@ -15,11 +15,17 @@ header{
  
 }
 
-.Item{
-  background-color: rgb(185, 201, 44);
-  /* width: 200px !important; */
+ .Item{
+   background-color: rgb(185, 201, 44); 
+   /* width: 160px !important;  */
   margin: 0px 4px 4px 4% !important;
-}
+} 
+
+@media only screen and (max-width: 600px)  {
+  .Item{
+    width: 260px !important;
+    margin-left: 10% !important;
+  }}
 
 .Item-content{
   font-size: 15px !important;

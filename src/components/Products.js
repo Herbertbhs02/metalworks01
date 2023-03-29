@@ -1,7 +1,7 @@
 import React, {useEffect,useState} from 'react'
 import axios from 'axios'
 import Item from './Item'
-import Services from './Services'
+//import Services from './Services'
 import Category from './Category'
 import Footer from './Footer'
 import Home from './Home'
@@ -15,15 +15,19 @@ const [categorypick, setCategorypick] = useState("home")//set home page  as a de
 const [loading, SetLoading] = useState(true)
 //Function to select product category
 const selection = async(e)=>{
+    
    const response = await axios.get('https://handsome-cow-train.cyclic.app/retrievework',{params:{category:e}})
-   //
-  setProductdata(response.data)
+     SetLoading(false)
+    setProductdata(response.data)
+    //SetLoading(true)
 }
 //xxxx
 useEffect(()=>{
   const getproducts = async()=>{
   const res = await axios.get('https://handsome-cow-train.cyclic.app/retrievework',{params:{category:categorypick}})
+  SetLoading(false)
   setProductdata(res.data)
+  //SetLoading(true)
   }
   getproducts()
 },[categorypick])
@@ -32,8 +36,11 @@ useEffect(()=>{
 const display1 = productdata.map(item=>(<div key={item._id}><Item image={item.image} name={item.product} description={item.description} id={item._id} /></div>))
 //const display2 = productdata.map(item=>(<div key={item._id}><Services  name={item.product} description={item.description} id={item._id} /></div>))
 
-
-      if(productdata[0].category ==='home'){
+     if(loading){
+      return (
+        <div>Loading please wait</div>
+      )
+     }  else if(productdata[0].category ==='home'){
    
       return (
         <div className=''>
