@@ -17,31 +17,26 @@ const [loading, SetLoading] = useState(true)
 const selection = async(e)=>{
     
    const response = await axios.get('https://handsome-cow-train.cyclic.app/retrievework',{params:{category:e}})
-     SetLoading(false)
+     //SetLoading(false)
     setProductdata(response.data)
-    //SetLoading(true)
+    
 }
 //xxxx
-useEffect(()=>{
+useEffect(()=>{ 
   const getproducts = async()=>{
   const res = await axios.get('https://handsome-cow-train.cyclic.app/retrievework',{params:{category:categorypick}})
   SetLoading(false)
   setProductdata(res.data)
-  //SetLoading(true)
+  
   }
   getproducts()
-},[categorypick])
+},[productdata])
 
 //List products. Item component is used in the map() method
 const display1 = productdata.map(item=>(<div key={item._id}><Item image={item.image} name={item.product} description={item.description} id={item._id} /></div>))
 //const display2 = productdata.map(item=>(<div key={item._id}><Services  name={item.product} description={item.description} id={item._id} /></div>))
 
-     if(loading){
-      return (
-        <div>Loading please wait</div>
-      )
-     }  else if(productdata[0].category ==='home'){
-   
+     if(productdata[0]==='home'){
       return (
         <div className=''>
               <Category selection={selection}/>
@@ -50,19 +45,30 @@ const display1 = productdata.map(item=>(<div key={item._id}><Item image={item.im
                </div>
               <Footer/>
       </div>
+      )}else if(loading){
+   
+      return (
+        <div>Loading please wait</div>
+    )}else if(productdata[0].category ==='home'){
+   
+      return (
+        <div className=''>
+              <Category selection={selection}/>
+              <div className=' '>
+               <Home/>
+               </div>
+              <Footer/>
+        </div>
   
-    )
-
-     }else
-
-  return (
+    )}else
+    return (
       <div  className="">
             <Category selection={selection}/>
             <div className=' products  '>
                   {display1}
             </div>  
             <Footer/>
-    </div>
+      </div>
 
   )
 }
