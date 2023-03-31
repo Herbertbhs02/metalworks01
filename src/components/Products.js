@@ -1,12 +1,9 @@
 import React, {useEffect,useState} from 'react'
 import axios from 'axios'
 import Item from './Item'
-//import Services from './Services'
 import Category from './Category'
 import Footer from './Footer'
 import Home from './Home'
-
-//const display = [];
 
 const Products = () => {
 
@@ -17,9 +14,9 @@ const [loading, SetLoading] = useState(true)
 const selection = async(e)=>{
     
    const response = await axios.get('https://handsome-cow-train.cyclic.app/retrievework',{params:{category:e}})
-     //SetLoading(false)
+     SetLoading(false)
     setProductdata(response.data)
-    
+   
 }
 //xxxx
 useEffect(()=>{ 
@@ -30,13 +27,20 @@ useEffect(()=>{
   
   }
   getproducts()
-},[productdata])
+},[categorypick])
 
 //List products. Item component is used in the map() method
 const display1 = productdata.map(item=>(<div key={item._id}><Item image={item.image} name={item.product} description={item.description} id={item._id} /></div>))
 //const display2 = productdata.map(item=>(<div key={item._id}><Services  name={item.product} description={item.description} id={item._id} /></div>))
 
-     if(productdata[0]==='home'){
+     if(loading){
+      return (
+        <div>Loading please wait</div>
+      )
+     } 
+     
+     else if(productdata[0].category ==='home'){
+   
       return (
         <div className=''>
               <Category selection={selection}/>
@@ -45,30 +49,19 @@ const display1 = productdata.map(item=>(<div key={item._id}><Item image={item.im
                </div>
               <Footer/>
       </div>
-      )}else if(loading){
-   
-      return (
-        <div>Loading please wait</div>
-    )}else if(productdata[0].category ==='home'){
-   
-      return (
-        <div className=''>
-              <Category selection={selection}/>
-              <div className=' '>
-               <Home/>
-               </div>
-              <Footer/>
-        </div>
   
-    )}else
-    return (
+    )
+
+     }else
+
+  return (
       <div  className="">
             <Category selection={selection}/>
             <div className=' products  '>
                   {display1}
             </div>  
             <Footer/>
-      </div>
+    </div>
 
   )
 }
