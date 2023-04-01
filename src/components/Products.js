@@ -4,6 +4,8 @@ import Item from './Item'
 import Category from './Category'
 import Footer from './Footer'
 import Home from './Home'
+import ScrollToTop from './ScrollToTop'
+
 
 const Products = () => {
 
@@ -44,6 +46,7 @@ const display1 = productdata.map(item=>(<div key={item._id}><Item image={item.im
       return (
         <div className=''>
               <Category selection={selection}/>
+              
               <div className=' '>
                <Home/>
                </div>
@@ -57,6 +60,7 @@ const display1 = productdata.map(item=>(<div key={item._id}><Item image={item.im
   return (
       <div  className="">
             <Category selection={selection}/>
+            <ScrollToTop/>
             <div className=' products  '>
                   {display1}
             </div>  
