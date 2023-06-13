@@ -14,7 +14,8 @@ const [loading, SetLoading] = useState(true)
 
 //Function to select product category
    const selection = async(e)=>{ SetLoading(true)
-   const response = await axios.get('https://handsome-cow-train.cyclic.app/retrievework',{params:{category:e}})
+   const response = await axios.get('https://weak-pear-drill-gown.cyclic.app/retrievework',{params:{category:e}})
+   //
    SetLoading(false)
         setProductdata(response.data)
 }
