@@ -30,7 +30,7 @@ const Navbar = ({selection}) => {
      <div className={show&&'navbar'}>
     <nav class="nav-wrapper light-blue  darken-4 ">
     <img src={logo} alt='logo'className="logo "/>
-    <div href="#" className="brand-logo "><span className='logo-name'>Metalworks</span></div>
+    <div href="#" className="brand-logo "><span className='logo-name'>Metalworks MP</span></div>
      <a href="#" data-target="mobile" class="  sidenav-trigger "><i class="material-icons icon-blue ">menu</i></a>
    <ul id="nav-mobile" class="container right hide-on-med-and-down">
      <li ><div>Email:Patrickmutumba@yahoo.co.uk </div></li>
