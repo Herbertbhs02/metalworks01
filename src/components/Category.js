@@ -40,10 +40,6 @@ const Category = ({selection}) => {
       <span>Showcase</span>
     </label> 
 
-    <label className="radio-btn">
-      <input class="with-gap" value="bumbers" name="bumbers" type="radio"  checked={select==="bumbers"} onChange={onChangeValue} />
-      <span>Customized Bumbers</span>
-    </label> 
       </p>
     </div>
   )
